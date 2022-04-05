@@ -1,0 +1,6 @@
+logging:
+  level:
+    root: INFO
+    com.github.kerner1000.examples: DEBUG
+
+app.error: true

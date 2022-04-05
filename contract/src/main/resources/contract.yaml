@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI contract
+  description: OpenAPI contract
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /info:
+    get:
+      tags:
+        - /info
+      operationId: getInfo
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Info'
+        500:
+          description: internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Info:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Some message
+        date:
+          type: string
+          format: date-time
+          description: Some date
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+        error-code:
+          type: integer
